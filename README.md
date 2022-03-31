@@ -121,3 +121,12 @@ Now we can begin, in order to test-drive our program we need to make tests first
 - [x] make this test pass by creating the Thermostat class with a currentTemperature property and also create the getTemperature method
 
 
+#### User Story 2
+```
+As a user
+So that I don't get cold
+I would like to increase the temperature of my thermostat
+```
+
+- [x] We need to create a test that called the up method on a thermostat and expect the temperature to rise by 1 degree so getTemperature() should return ``21``
+- [x] To make this test pass we need to create the up() method which adds 1 to the current temperature

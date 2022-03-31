@@ -98,6 +98,26 @@ thermostat.getTemperature(); // should be back to 20
 Using this I created the domain model below:
 
 ![Domain Model](https://github.com/arhussain1/thermostat/blob/main/Images/Thermostat%20Domain%20Model.drawio.png?raw=true)
+
 In my Domain Model I went with only one class called Thermostat which should handle increasing and decreasing temperature, setting the power saving mode on and off and finally it should know what the temperature is set to at any given time.
+
+Lets complete each user story now:
+
+#### User Story 1
+```
+As a user
+So that my thermostat is ready to go as soon as I turn it on
+I would like the thermostat to have an initial temperature of 20 degrees
+```
+
+To begin, I need to set up my repo with the following:
+  - [x] I need to run ``npm init -y`` to create a package.json file
+  - [x] Now lets install the Jest package by running ``npm install -g jest``
+  - [x] Lets create two files ``thermostat.js`` and ``thermostat.test.js``
+
+Now we can begin, in order to test-drive our program we need to make tests first then write out code to pass those tests:
+
+- [x] create a test to check if a new instance of Thermostat has a temperature of 20
+- [x] make this test pass by creating the Thermostat class with a currentTemperature property and also create the getTemperature method
 
 

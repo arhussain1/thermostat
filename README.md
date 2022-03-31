@@ -128,5 +128,16 @@ So that I don't get cold
 I would like to increase the temperature of my thermostat
 ```
 
-- [x] We need to create a test that called the up method on a thermostat and expect the temperature to rise by 1 degree so getTemperature() should return ``21``
+- [x] We need to create a test that called the up method on a new thermostat and expects the temperature to rise by 1 degree, so getTemperature() should return ``21``
 - [x] To make this test pass we need to create the up() method which adds 1 to the current temperature
+
+
+#### User Story 3
+```
+As a user
+So that I don't get too warm
+I would like to decrease the temperature of my thermostat
+```
+
+- [ ] We need to create a test that calls the down() method on a new thermostat and expects the temperature to low by 1 degree, so getTemperature() should return 19
+- [ ] To make this test pass we need to create a down() method which will minus 1 from the current temperature

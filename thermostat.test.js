@@ -60,4 +60,24 @@ describe('Thermostat', () => {
       thermostat.setPowerSavingMode('hello')
     }).toThrow('Wrong Argument only input true or false')
   });
+
+  it('should throw an error if up() is called when minTemp has been reached', () => {
+    // The code below run the up() method 6 times should raise an error
+    expect(() => {
+      for (let step = 0; step<=5; step++) {
+        thermostat.up();
+      }
+    }).toThrow('Maximum Temperature of 25 degrees has been reached')
+  });
+
+  it('should NOT throw an error if up() is called when minTemp has NOT been reached', () => {
+    // The code below run the up() method 5 times should NOT raise an error
+    expect(() => {
+      for (let step = 0; step<=4; step++) {
+        thermostat.up();
+      }
+    }).not.toThrow();
+  });
+  
+
 });

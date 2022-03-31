@@ -177,3 +177,18 @@ _Steps_
 - [x] To do this we need to add the powerSavingMode attribute to the thermostat constructor class
 - [x] Create a setPowerSavingMode(bool) which takes an argument and saves it to the powerSavingMode attribute of this thermostat instance
 - [x] Add a guard clause to the setPowerSavingMode(bool) method that throws an error if the input is not a boolean
+
+
+#### User Story 6
+```
+As a user
+So that I can save money on Energy bills after inflation 
+If power saving mode is on, I would like the maximum possible temperature to be 25 degrees
+```
+
+- [x] Create a test that attempts to raise the temperature using the up() method 6 times and expects and error to be throws stating 'Maximum Temperature of 25 degrees has been reached'
+- [x] Create a test that call up() 5 times and expect this to not raise an error 
+
+- [x] First we need to add another attribute called maxTemp by default it is set to 25 because powerSavingMode is true by default
+- [x] Then we to modify the up method similarly to the way we did in the previous user story for the down method, We want to add a guard clause to throw an error if currentTemperature has reach maxTemp
+

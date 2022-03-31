@@ -4,6 +4,7 @@ class Thermostat {
     this.currentTemperature = 20;
     this.minTemp = 10;
     this.powerSavingMode = true;
+    this.maxTemp = 25;
   }
 
   getTemperature() {
@@ -11,6 +12,7 @@ class Thermostat {
   }
 
   up() {
+    if(this.currentTemperature == this.maxTemp) throw 'Maximum Temperature of 25 degrees has been reached'
     this.currentTemperature += 1;
   }
 

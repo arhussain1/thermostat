@@ -20,4 +20,30 @@ describe('Thermostat', () => {
     thermostat.down();
     expect(thermostat.getTemperature()).toEqual(19)
   });
+
+  it('should NOT throw an error if down() is called when currentTemperature >= MinTemp', () => {
+    // The code below run the down() method 10 times should not raise an error
+    expect(() => {
+      for (let step = 0; step<=9; step++) {
+        thermostat.down();
+      }
+      console.log(`Here it is!!! ${thermostat.getTemperature()}`)
+    }).not.toThrow();
+  });
+
+  it('should throw an error if down() is called when minimum temperature of 10 has been reached', () => {
+    // The code below run the down() method 11 times should raise an error
+    expect(() => {
+      for (let step = 0; step<=10; step++) {
+        thermostat.down();
+      }
+    }).toThrow('Lowest Temperature Reached')
+  });
+
+  it('should not decrease the temperature lower than the minTemp of 10 degrees', () => {
+    for (let step = 0; step<=9; step++) {
+      thermostat.down();
+    }
+    expect(thermostat.getTemperature()).toEqual(10)
+  });
 });

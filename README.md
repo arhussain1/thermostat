@@ -141,3 +141,21 @@ I would like to decrease the temperature of my thermostat
 
 - [x] We need to create a test that calls the down() method on a new thermostat and expects the temperature to low by 1 degree, so getTemperature() should return 19
 - [x] To make this test pass we need to create a down() method which will minus 1 from the current temperature
+
+
+#### User Story 3
+```
+As a user 
+So that i don't accidently set the temperature too low
+I would the lowest possible temperature to be 10 degrees
+```
+
+_Tests_
+- [x] We need to create a test that attempts to call the down() method 11 times and expect to be thrown an error stating 'Lowest Temperature Reached'
+- [x] We also need another test which calls the down() method 11 times and we should expect getTemperature to return 10 rather than 9
+- [x] design a test to make sure that calling down() 10 times does NOT throw an error
+
+_Steps_
+- [x] We need to create a constant which describes the minimum temperature (We could just use the number 10 in our code but this is an example of using magic numbers and will be less readable)
+- [x] modify the down() method with an if statement or a guard clause to throw an error if the temperature has already reached 10 degrees and the down() method is called
+- [x] modify the down() method so that it does not decrease the currentTemperature if the minimumTemp has been reached

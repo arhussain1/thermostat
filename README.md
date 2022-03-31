@@ -192,3 +192,38 @@ If power saving mode is on, I would like the maximum possible temperature to be 
 - [x] First we need to add another attribute called maxTemp by default it is set to 25 because powerSavingMode is true by default
 - [x] Then we to modify the up method similarly to the way we did in the previous user story for the down method, We want to add a guard clause to throw an error if currentTemperature has reach maxTemp
 
+
+#### User Story 7
+```
+As a user
+So that I don't accidently set the temperature too high
+I would like the maximum possible temperature to be 32 degrees
+```
+
+So here we are going to need to think about how we can make our maxTemp dynamic and change depending on whether powerSavingMode is true or false.
+
+If we think about when our Thermostat class is first instantiated it will have powerSavingMode set to true as default, so we can also set the maxTemp as 25 here aswell, this is what we did in our previous user story and I am making the decision to leave that unchanged as I don't think it will affect our work that we intend to do in this section.
+
+Since any time we want to change the powerSavingMode attribute this goes through the setPowerSavingMode() method, we can add another conditional statement, so if your changing the powerSavingMode to false it set the new maxTemp to 32 and likewise if your setting back to true again it will set the maxTemp back to 25. 
+
+_Tests_
+- [x] Create a test that sets the powerSavingMode to false and expects to be thrown an error after the up method is called 13 times
+- [x] Create another test that sets powerSavingMode to false and expect no error to be thrown when the up method is called 12 times and also add an extra expect statement to check if getTemperature returns 32
+- [x] Create another test that sets powerSavingMode to false and then back to true and expect to be thrown an error if the up method is called 6 times
+
+_Steps_
+- [x] add a condition such that if the argument given to setPowerSavingMode is true it sets the maxTemp = 25 and if false it sets maxTemp = 32
+
+
+#### User Story 7
+```
+As a user
+So that I can save time
+I would like to be able to reset my thermostat back to 20 degrees
+```
+
+Before the test below we should change a bunch of settings such as powerSavingMode should be set to false and the temperature should be raised to 28 degrees
+- [x] Create a test that expects the reset() method to bring the currentTemperature back to 20 and the powerSavingMode to be true
+- [x] Create a test that expects the reset() method to set the powerSavingMode to be true
+
+- [x] create a reset method that simply sets the currentTemperature back to 20 and calls setPowerSavingMode with an argument of true

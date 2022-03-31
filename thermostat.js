@@ -12,7 +12,7 @@ class Thermostat {
   }
 
   up() {
-    if(this.currentTemperature == this.maxTemp) throw 'Maximum Temperature of 25 degrees has been reached'
+    if(this.currentTemperature == this.maxTemp) throw 'Maximum Temperature has been reached'
     this.currentTemperature += 1;
   }
 
@@ -22,9 +22,19 @@ class Thermostat {
   }
 
   setPowerSavingMode(bool) {
-    if (typeof bool != "boolean") throw 'Wrong Argument only input true or false'
+    this.checkBool(bool)
+    bool ? (this.maxTemp = 25) : (this.maxTemp=32);
     this.powerSavingMode = bool
     return this.powerSavingMode
+  }
+
+  checkBool(argument) {
+    if (typeof argument != "boolean") throw 'Wrong Argument only input true or false'
+  }
+
+  reset() {
+    this.currentTemperature = 20
+    this.setPowerSavingMode(true)
   }
 }
 

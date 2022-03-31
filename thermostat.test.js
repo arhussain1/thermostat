@@ -67,7 +67,7 @@ describe('Thermostat', () => {
       for (let step = 0; step<=5; step++) {
         thermostat.up();
       }
-    }).toThrow('Maximum Temperature of 25 degrees has been reached')
+    }).toThrow('Maximum Temperature has been reached')
   });
 
   it('should NOT throw an error if up() is called when minTemp has NOT been reached', () => {
@@ -78,6 +78,70 @@ describe('Thermostat', () => {
       }
     }).not.toThrow();
   });
+
+  it('should raise error when powerSavingMode set to false should change maxTemp to 32 and we call up() 13 times', () => {
+    // The code below run the up() method 13 times should raise an error
+    thermostat.setPowerSavingMode(false);
+    expect(() => {
+      for (let step = 0; step<=12; step++) {
+        thermostat.up();
+      }
+    }).toThrow('Maximum Temperature has been reached')
+    expect((thermostat.getTemperature())).toEqual(32)
+  });
+
+  it('should NOT raise error when powerSavingMode set to false and we call up() 12 times', () => {
+    // The code below run the up() method 12 times should raise an error
+    thermostat.setPowerSavingMode(false);
+    expect(() => {
+      for (let step = 0; step<=11; step++) {
+        thermostat.up();
+      }
+    }).not.toThrow('Maximum Temperature has been reached')
+    expect((thermostat.getTemperature())).toEqual(32)
+  });
+
+  it('When powerSavingMode set to false then to true should raise error when we call up() 6 times', () => {
+    // The code below run the up() method 13 times should raise an error
+    thermostat.setPowerSavingMode(false);
+    thermostat.setPowerSavingMode(true);
+
+    expect(() => {
+      for (let step = 0; step<=5; step++) {
+        thermostat.up();
+      }
+    }).toThrow('Maximum Temperature has been reached')
+    expect((thermostat.getTemperature())).toEqual(25)
+  });
+
+  it('reset method should reset currentTemperature back to 20 degrees', () => {
+    thermostat.setPowerSavingMode(false);
+    // lets raise the temp to 28 degrees
+    for (let step = 0; step<=7; step++) {
+      thermostat.up();
+    }
+    thermostat.reset();
+
+    expect(thermostat.getTemperature()).toEqual(20)
+  });
+
+  it('reset method should reset the powerSavingMode to true', () => {
+    thermostat.setPowerSavingMode(false);
+    // lets raise the temp to 28 degrees
+    for (let step = 0; step<=7; step++) {
+      thermostat.up();
+    }
+    thermostat.reset();
+
+    expect(() => {
+      for (let step = 0; step<=5; step++) {
+        thermostat.up();
+      }
+    }).toThrow('Maximum Temperature has been reached')
+    expect((thermostat.getTemperature())).toEqual(25)
+  });
+
+
   
 
 });

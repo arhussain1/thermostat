@@ -96,8 +96,8 @@ thermostat.getTemperature(); // should be back to 20
 ```
 
 Using this I created the domain model below:
-![Domain Model](https://github.com/arhussain1/thermostat/blob/main/images/ThermostatDomainModel.drawio.png?raw=true)
 
+![Domain Model](https://github.com/arhussain1/thermostat/blob/main/Images/Thermostat%20Domain%20Model.drawio.png?raw=true)
 In my Domain Model I went with only one class called Thermostat which should handle increasing and decreasing temperature, setting the power saving mode on and off and finally it should know what the temperature is set to at any given time.
 
 

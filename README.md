@@ -143,7 +143,7 @@ I would like to decrease the temperature of my thermostat
 - [x] To make this test pass we need to create a down() method which will minus 1 from the current temperature
 
 
-#### User Story 3
+#### User Story 4
 ```
 As a user 
 So that i don't accidently set the temperature too low
@@ -159,3 +159,21 @@ _Steps_
 - [x] We need to create a constant which describes the minimum temperature (We could just use the number 10 in our code but this is an example of using magic numbers and will be less readable)
 - [x] modify the down() method with an if statement or a guard clause to throw an error if the temperature has already reached 10 degrees and the down() method is called
 - [x] modify the down() method so that it does not decrease the currentTemperature if the minimumTemp has been reached
+
+
+#### User Story 5
+```
+As a user
+So that I can save money on Energy bills after inflation 
+I would like my thermostat to have power saving mode on by default
+```
+
+_Tests_
+- [x] Create a test that expects the powerSavingMode to be true when a new thermostat instance is created
+- [x] Create a test that runs the setPowerSavingMode() method with an argument of false and expects it to return the value of the powerSavingMode as false
+- [x] As a bonus we should include another test which expects a non bool argument to throw an error saying 'Wrong Argument only input true or false'
+
+_Steps_
+- [x] To do this we need to add the powerSavingMode attribute to the thermostat constructor class
+- [x] Create a setPowerSavingMode(bool) which takes an argument and saves it to the powerSavingMode attribute of this thermostat instance
+- [x] Add a guard clause to the setPowerSavingMode(bool) method that throws an error if the input is not a boolean

@@ -46,4 +46,18 @@ describe('Thermostat', () => {
     }
     expect(thermostat.getTemperature()).toEqual(10)
   });
+
+  it('should have the powerSavingMode on by default', () => {
+    expect(thermostat.powerSavingMode).toBe(true)
+  });
+
+  it('should return false when the powerSavingMode is turned off', () => {
+    expect(thermostat.setPowerSavingMode(false)).toBe(false)
+  });
+
+  it('should throw an error when a non bool input is given to setPowerSavingMode()', () => {
+    expect(() => {
+      thermostat.setPowerSavingMode('hello')
+    }).toThrow('Wrong Argument only input true or false')
+  });
 });

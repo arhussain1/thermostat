@@ -141,7 +141,12 @@ describe('Thermostat', () => {
     expect((thermostat.getTemperature())).toEqual(25)
   });
 
-
+  it('should return "Low Usage" when currentTemperature is 17 and getEnergyUsage is called', () => {
+    for (let step = 0; step<=2; step++) {
+      thermostat.down();
+    }
+    expect(thermostat.getEnergyUsage()).toEqual('Low Usage')
+  });
   
 
 });

@@ -36,6 +36,12 @@ class Thermostat {
     this.currentTemperature = 20
     this.setPowerSavingMode(true)
   }
+
+  getEnergyUsage() {
+    if (this.currentTemperature < 18) {
+      return 'Low Usage'
+    }
+  }
 }
 
 

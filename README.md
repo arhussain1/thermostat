@@ -227,3 +227,32 @@ Before the test below we should change a bunch of settings such as powerSavingMo
 - [x] Create a test that expects the reset() method to set the powerSavingMode to be true
 
 - [x] create a reset method that simply sets the currentTemperature back to 20 and calls setPowerSavingMode with an argument of true
+
+#### User Story 7, 8 and 9
+```
+As a user
+So that I can keep track of my impact on the UKs net zero by 2050 initiative
+I would like to be able to see low usage if my thermostat is < 18 
+
+As a user
+So that I can keep track of my impact on the UKs net zero by 2050 initiative
+I would like to be able to see medium usage if my thermostat is <= 25 
+
+As a user
+So that I can keep track of my impact on the UKs net zero by 2050 initiative
+I would like to be able to see high usage if my thermostat is above 25
+```
+
+The above 3 User stories will be done at the same time. Commit after each one though.
+
+_7th User Story_
+- [x] Create a test that reduces temp to 17 degrees and calls getEnergyUsage and expects it to return 'Low Usage'
+- [x] Pass this test by creating getEnergyUsage() which has a conditional returning 'Low Usage' when currentTemperature is less than 18 degrees
+
+_9th User Story_
+- [ ] Create a test expects when the currentTemperature is 26 getEnergyUsage returns 'High Usage'
+- [ ] Add an else if statement that returns 'High Usage' if the temperature is above 25
+
+_8th User Story_
+- [ ] Create two tests that expects when the current temp is 18 and 25 it should return 'Med Usage'
+- [ ] Create an else statement that return 'Med Usage'

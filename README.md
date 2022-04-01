@@ -260,3 +260,43 @@ _8th User Story_
 
 #### Project Completed
 We have now completed the specification for this thermostat, it has been fully tested using Jest
+
+
+### Bonus Task 1
+I just learned about how a callback works and why it is necessary, I will implement it in this exercise. The goal is to create a Command Line Interface using the ``readline`` package. Below is an example of one:
+```
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question('What is your favorite food? ', (answer) => {
+  console.log(`Oh, so your favorite food is ${answer}`);
+});
+```
+
+The goal of the callback here is to make sure certain functions only get executed once either a user has entered something in the prompt, in addition if function 2 relies of function 1 to be completed, we can use a callback to ensure function 1 has completed before function 2 can run.
+
+Our task is to be able to control the thermostat using the 'up' and 'down' commands using our CLI Below is an example output I expect:
+```
+Temperature is 20
+Enter command > up
+Temperature is 21
+Enter command > down
+Temperature is 20
+Enter command > down
+Temperature is 19
+Enter command > down
+Temperature is 18
+Enter command > 
+```
+
+_Steps_
+- Lets begin by installing ``readline`` by running ``npm install readline`` in the terminal of our thermostat project directory
+- Then lets create the file ``cli.js`` that will contain the code for our interface
+- Create an instance of a Thermostat in ``cli.js``
+- Use ``readline`` commands to ask a user a questions and prompt for an input
+- Then use conditionals and loops to execute the commands the user provided, for now only do ``up`` and ``down``
+
+- [x] Once the CLI is capable of creating a similar output to the one above and is able to effectively raise and lower temperature via user input check this box

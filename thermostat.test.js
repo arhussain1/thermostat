@@ -147,6 +147,14 @@ describe('Thermostat', () => {
     }
     expect(thermostat.getEnergyUsage()).toEqual('Low Usage')
   });
+
+  it('should return "High Usage" when currentTemperature is 26 and getEnergyUsage is called', () => {
+    thermostat.setPowerSavingMode(false)
+    for (let step = 0; step<=5; step++) {
+      thermostat.up();
+    }
+    expect(thermostat.getEnergyUsage()).toEqual('High Usage')
+  });
   
 
 });

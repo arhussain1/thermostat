@@ -250,8 +250,8 @@ _7th User Story_
 - [x] Pass this test by creating getEnergyUsage() which has a conditional returning 'Low Usage' when currentTemperature is less than 18 degrees
 
 _9th User Story_
-- [ ] Create a test expects when the currentTemperature is 26 getEnergyUsage returns 'High Usage'
-- [ ] Add an else if statement that returns 'High Usage' if the temperature is above 25
+- [x] Create a test expects when the currentTemperature is 26 getEnergyUsage returns 'High Usage'
+- [x] Add an else if statement that returns 'High Usage' if the temperature is above 25
 
 _8th User Story_
 - [ ] Create two tests that expects when the current temp is 18 and 25 it should return 'Med Usage'

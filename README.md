@@ -254,5 +254,9 @@ _9th User Story_
 - [x] Add an else if statement that returns 'High Usage' if the temperature is above 25
 
 _8th User Story_
-- [ ] Create two tests that expects when the current temp is 18 and 25 it should return 'Med Usage'
-- [ ] Create an else statement that return 'Med Usage'
+- [x] Create two tests that expects when the current temp is 18 and 25 it should return 'Med Usage'
+- [x] Create an else statement that return 'Med Usage'
+
+
+#### Project Completed
+We have now completed the specification for this thermostat, it has been fully tested using Jest

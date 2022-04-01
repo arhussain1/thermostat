@@ -38,8 +38,9 @@ class Thermostat {
   }
 
   getEnergyUsage() {
-    if (this.currentTemperature < 18) {return 'Low Usage'} 
-    else if (this.currentTemperature > 25) { return 'High Usage'}
+    if (this.currentTemperature < 18) {return 'Low usage'} 
+    else if (this.currentTemperature > 25) { return 'High usage'}
+    else {return 'Med usage'}
   }
 }
 

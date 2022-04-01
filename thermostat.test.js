@@ -141,20 +141,33 @@ describe('Thermostat', () => {
     expect((thermostat.getTemperature())).toEqual(25)
   });
 
-  it('should return "Low Usage" when currentTemperature is 17 and getEnergyUsage is called', () => {
+  it('should return "Low usage" when currentTemperature is 17 and getEnergyUsage is called', () => {
     for (let step = 0; step<=2; step++) {
       thermostat.down();
     }
-    expect(thermostat.getEnergyUsage()).toEqual('Low Usage')
+    expect(thermostat.getEnergyUsage()).toEqual('Low usage')
   });
 
-  it('should return "High Usage" when currentTemperature is 26 and getEnergyUsage is called', () => {
+  it('should return "High usage" when currentTemperature is 26 and getEnergyUsage is called', () => {
     thermostat.setPowerSavingMode(false)
     for (let step = 0; step<=5; step++) {
       thermostat.up();
     }
-    expect(thermostat.getEnergyUsage()).toEqual('High Usage')
+    expect(thermostat.getEnergyUsage()).toEqual('High usage')
   });
   
+  it('should return "Med usage" when currentTemperature is 25 and getEnergyUsage is called', () => {
+    for (let step = 0; step<=4; step++) {
+      thermostat.up();
+    }
+    expect(thermostat.getEnergyUsage()).toEqual('Med usage')
+  });
+
+  it('should return "Med usage" when currentTemperature is 18 and getEnergyUsage is called', () => {
+    for (let step = 0; step<=1; step++) {
+      thermostat.down();
+    }
+    expect(thermostat.getEnergyUsage()).toEqual('Med usage')
+  });
 
 });

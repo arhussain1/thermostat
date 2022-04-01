@@ -33,11 +33,10 @@ describe('Thermostat', () => {
 
   it('should throw an error if down() is called when minimum temperature of 10 has been reached', () => {
     // The code below run the down() method 11 times should raise an error
-    expect(() => {
-      for (let step = 0; step<=10; step++) {
-        thermostat.down();
-      }
-    }).toThrow('Lowest Temperature Reached')
+    for (let step = 0; step<=9; step++) {
+      thermostat.down();
+    }
+    expect(thermostat.down()).toEqual('Lowest Temperature Reached')
   });
 
   it('should not decrease the temperature lower than the minTemp of 10 degrees', () => {
@@ -61,13 +60,12 @@ describe('Thermostat', () => {
     }).toThrow('Wrong Argument only input true or false')
   });
 
-  it('should throw an error if up() is called when minTemp has been reached', () => {
-    // The code below run the up() method 6 times should raise an error
-    expect(() => {
-      for (let step = 0; step<=5; step++) {
-        thermostat.up();
-      }
-    }).toThrow('Maximum Temperature has been reached')
+  it('should throw an error if up() is called when mmaxTemp has been reached', () => {
+    // The code below runs the up() method 6 times should raise an error
+    for (let step = 0; step<=4; step++) {
+      thermostat.up();
+    }
+    expect(thermostat.up()).toEqual('Maximum Temperature has been reached')
   });
 
   it('should NOT throw an error if up() is called when minTemp has NOT been reached', () => {
@@ -82,11 +80,12 @@ describe('Thermostat', () => {
   it('should raise error when powerSavingMode set to false should change maxTemp to 32 and we call up() 13 times', () => {
     // The code below run the up() method 13 times should raise an error
     thermostat.setPowerSavingMode(false);
-    expect(() => {
-      for (let step = 0; step<=12; step++) {
-        thermostat.up();
-      }
-    }).toThrow('Maximum Temperature has been reached')
+
+    for (let step = 0; step<=11; step++) {
+      thermostat.up();
+    }
+
+    expect((thermostat.up())).toEqual('Maximum Temperature has been reached')
     expect((thermostat.getTemperature())).toEqual(32)
   });
 
@@ -102,15 +101,14 @@ describe('Thermostat', () => {
   });
 
   it('When powerSavingMode set to false then to true should raise error when we call up() 6 times', () => {
-    // The code below run the up() method 13 times should raise an error
     thermostat.setPowerSavingMode(false);
     thermostat.setPowerSavingMode(true);
 
-    expect(() => {
-      for (let step = 0; step<=5; step++) {
-        thermostat.up();
-      }
-    }).toThrow('Maximum Temperature has been reached')
+    for (let step = 0; step<=4; step++) {
+      thermostat.up();
+    }
+
+    expect((thermostat.up())).toEqual('Maximum Temperature has been reached')
     expect((thermostat.getTemperature())).toEqual(25)
   });
 
@@ -133,11 +131,12 @@ describe('Thermostat', () => {
     }
     thermostat.reset();
 
-    expect(() => {
-      for (let step = 0; step<=5; step++) {
-        thermostat.up();
-      }
-    }).toThrow('Maximum Temperature has been reached')
+    //now lets raise the temp to 25 degrees
+    for (let step = 0; step<=4; step++) {
+      thermostat.up();
+    }
+
+    expect((thermostat.up())).toEqual('Maximum Temperature has been reached')
     expect((thermostat.getTemperature())).toEqual(25)
   });
 

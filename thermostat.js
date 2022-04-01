@@ -12,12 +12,12 @@ class Thermostat {
   }
 
   up() {
-    if(this.currentTemperature == this.maxTemp) throw 'Maximum Temperature has been reached'
+    if(this.currentTemperature == this.maxTemp) return 'Maximum Temperature has been reached'
     this.currentTemperature += 1;
   }
 
   down() {
-    if(this.currentTemperature == this.minTemp) throw 'Lowest Temperature Reached';
+    if(this.currentTemperature == this.minTemp) return 'Lowest Temperature Reached';
     this.currentTemperature -= 1;
   }
 
